@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    tools {
+
+        maven '3.8.5'
+        jdk 'JDK_17'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+
+                checkout scm
+            }
+        }
+
+        stage('Run BDD Tests') {
+            steps {
+
+                bat "mvn clean test -DsuiteXmlFile=src/test/resources/regression-suite.xml -Dheadless=true"
+            }
+        }
+    }
+
+    post {
+        always {
+
+            allure includeProperties: false, results: [[path: 'target/allure-results']]
+        }
+    }
+}
