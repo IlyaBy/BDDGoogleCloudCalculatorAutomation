@@ -1,6 +1,5 @@
 package steps;
 import driver.DriverSingleton;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -34,7 +33,7 @@ public class CostVerificationSteps {
         calculatorPricingPage.startEstimation();
     }
 
-    @And("^I configure the Compute Engine form with following specification:$")
+    @When("^I configure the Compute Engine form with following specification:$")
     public void iConfigureTheFormWithFollowingSpecification(ComputeEngineInstance testInstance) {
 
         calculatorPricingPage.setNumberOfInstances(testInstance.getNumberOfInstances())
@@ -50,13 +49,13 @@ public class CostVerificationSteps {
                 .selectDiscountOptions(testInstance.getDiscountOptions());
     }
 
-    @And("^I save the estimated cost from the calculator Pricing page$")
+    @When("^I save the estimated cost from the calculator Pricing page$")
     public void iSaveTheEstimatedCostFromTheCalculator() {
 
         calculatorEstimatedCost = calculatorPricingPage.getCalculatorCost();
     }
 
-    @And("^I navigate to the Detailed view page(?: using tab index (\\d+))?$")
+    @When("^I navigate to the Detailed view page(?: using tab index (\\d+))?$")
     public void iNavigateToTheDetailedViewReportTab(String tabIndexStr) {
         calculatorPricingPage.openDetailedView();
 

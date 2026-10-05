@@ -1,12 +1,9 @@
 package steps;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import driver.DriverSingleton;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import pages.BackgroundPage;
 
     public class BackgroundSteps {
@@ -29,12 +26,12 @@ import pages.BackgroundPage;
             backgroundPage.openPricingMenu();
         }
 
-        @And("^I accept the cookies if present$")
+        @When("^I accept the cookies if present$")
         public void iAcceptTheCookiesIfPresent() {
             backgroundPage.acceptCookiesIfPresent();
         }
 
-        @And("^I choose a Pricing calculator option to open GoogleCloudPricingCalculatorPage$")
+        @When("^I choose a Pricing calculator option to open GoogleCloudPricingCalculatorPage$")
         public void iChooseAPricingCalculatorOptionToOpenGoogleCloudPricingCalculatorPage() {
 
             backgroundPage.openCalculatorPricingPage();
